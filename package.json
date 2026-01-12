@@ -1,0 +1,23 @@
+{
+  "name": "auhealthcheck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rustem-gif/AUHealthCheck.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rustem-gif/AUHealthCheck/issues"
+  },
+  "homepage": "https://github.com/Rustem-gif/AUHealthCheck#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.6"
+  }
+}
