@@ -1,11 +1,5 @@
-import BasePage from "../BasePage/BasePage";
-import {Locator, Page} from "@playwright/test";
-import {IGameCategories} from "../../Interfaces/gameCategories";
-import SidebarMenu from "../../Components/SidebarMenu";
-import {DepModal} from "../../Components/DepModal";
-import SupportMessanger from "../../Components/SupportButton";
-import PromoSection from "./Component/PromoSection";
-import { axeScan } from "axe-playwright-report";
+
+import {Locator, Page, expect} from "@playwright/test";
 
 export class MainPage {
 
@@ -14,6 +8,7 @@ export class MainPage {
     readonly inputMailField: Locator;
     readonly inputPasswordField: Locator;
     readonly submitLoginButton: Locator;
+    readonly depositButton: Locator;    
     
     constructor(page: Page) {
 
@@ -22,6 +17,7 @@ export class MainPage {
         this.inputMailField = page.locator('#login_modal_email_input');
         this.inputPasswordField = page.locator('#login_password_input');
         this.submitLoginButton = page.locator('#submit_login');
+        this.depositButton = page.locator('#header_dep_btn')
         }
 
     async signIn(email, password) {
@@ -30,6 +26,11 @@ export class MainPage {
         await this.inputPasswordField.fill(password);
         await this.submitLoginButton.click();
     }
+
+    async navTo(url: string) {
+         await this.page.goto(url);
+         await expect (this.page.url()).toContain(url);
+        }
 }
 
 
